@@ -5,6 +5,7 @@ import {useDark, useToggle} from '@vueuse/core'
 import Headers from "@/components/Headers.vue";
 import Cookies from "@/components/Cookies.vue";
 import CurltoRquests from "@/components/CurltoRquests.vue";
+import PwdDecrypt from "@/components/PwdDecrypt.vue";
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
@@ -18,7 +19,7 @@ const menulList = ref(
       {id: 1001, "name": "headers转换"},
       {id: 1002, "name": "cokies转换"},
       {id: 1003, "name": "curl转requests"},
-      {id: 1004, "name": "rsa解密"},
+      {id: 1004, "name": "密码解密"},
       {id: 1005, "name": "taskid提取参数"},
       {id: 1006, "name": "短信验证码"},
       {id: 1007, "name": "英汉互译"},
@@ -63,6 +64,7 @@ const menulList = ref(
         <Headers v-if="useSetting.isSelected === 1001"></Headers>
         <Cookies v-else-if="useSetting.isSelected === 1002"></Cookies>
         <CurltoRquests v-else-if="useSetting.isSelected === 1003"></CurltoRquests>
+        <PwdDecrypt v-else-if="useSetting.isSelected === 1004"></PwdDecrypt>
       </el-main>
       <el-footer>版权所有</el-footer>
     </el-container>

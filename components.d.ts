@@ -29,5 +29,6 @@ declare module 'vue' {
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
     Headers: typeof import('./src/components/Headers.vue')['default']
+    PwdDecrypt: typeof import('./src/components/PwdDecrypt.vue')['default']
   }
 }

@@ -15,6 +15,9 @@ export const isSetting = defineStore("isSetting", () => {
     let inPutCtoR = ref('');
     let outPutCtoR = ref('');
 
+    let inPutPwd = ref('');
+    let outPutPwd = ref('');
+
     const updateinPutHeaders = (inPutValue) => {
       inPutHeaders.value = inPutValue
     }
@@ -39,6 +42,14 @@ export const isSetting = defineStore("isSetting", () => {
       outPutCtoR.value = outPutValue
     }
 
+    const updateinPutPwd = (inPutValue) => {
+      inPutPwd.value = inPutValue
+    }
+
+    const updateoutPutPwd = (outPutValue) => {
+      outPutPwd.value = outPutValue
+    }
+
 
 
     return {
@@ -59,6 +70,11 @@ export const isSetting = defineStore("isSetting", () => {
         outPutCtoR,
         updateinPutCtoR,
         updateoutPutCtoR,
+
+        inPutPwd,
+        outPutPwd,
+        updateinPutPwd,
+        updateoutPutPwd
 
 
 
