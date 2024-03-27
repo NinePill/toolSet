@@ -5,32 +5,50 @@ import {isSetting} from "@/stores/oneStores.js";
 
 const useSetting = isSetting()
 // 直接使用 store 中的状态
-const inPutTaskid = computed({
-  get: () => useSetting.inPutTaskid,
-  set: (value) => useSetting.updateinPutTaskid(value)
+const inPutSms = computed({
+  get: () => useSetting.inPutSms,
+  set: (value) => useSetting.updateinPutSms(value)
 })
 
-const outPutTaskid = computed({
-  get: () => useSetting.outPutTaskid,
+const outPutSms = computed({
+  get: () => useSetting.outPutSms,
 })
 
-// 使用 watch 来侦听 inPutTaskid 的变化并转换输出
-watch(inPutTaskid, async (newValue) => {
+// 使用 watch 来侦听 inPutSms 的变化并转换输出
+watch(inPutSms, async (newValue) => {
   try {
-    const result = await dataTransform(newValue);
-    useSetting.updateoutPutTaskid(result);
+    const result = await smsTransform(newValue);
+    useSetting.updateoutPutSms(result);
   } catch (error) {
     console.error('Error in curlTransform:', error);
   }
 });
 
-function dataTransform(inputText) {
+// 刷新输出内容的方法
+async function refreshOutput() {
+  try {
+    const result = await smsTransform(inPutSms.value);
+    useSetting.updateoutPutSms(result);
+    ElNotification({
+          title: 'Success',
+          message: '刷新成功',
+          type: 'success',
+          duration: 1000,
+
+        });
+  } catch (error) {
+    console.error('Error in refreshOutput:', error);
+  }
+}
+
+
+function smsTransform(inputText) {
     return new Promise((resolve, reject) => {
         inputText = inputText.trim();
         if (!inputText) {
             return;
         }
-        const url = import.meta.env.VITE_CENTER_API + '/tool/d/';
+        const url = import.meta.env.VITE_CENTER_API + '/tool/s/';
         fetch(url + inputText)
             .then(response => {
                 if (response.ok) {
@@ -41,14 +59,12 @@ function dataTransform(inputText) {
             })
             .then(data => {
                 console.log(data); // 输出JSON格式的数据
-                resolve(JSON.stringify(JSON.parse(data.output), null, 2)); // 将返回的数据放入output元素中
+                resolve(JSON.stringify(data.output, null, 2)); // 将返回的数据放入output元素中
             })
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
                 reject(error);
             });
-
-
     });
 }
 
@@ -72,15 +88,15 @@ function copyToClipboard(text) {
 }
 
 const clearall = () => {
-  inPutTaskid.value = ''
-  useSetting.updateoutPutTaskid(''); // 清空 outPutTaskid
+  inPutSms.value = ''
+  useSetting.updateoutPutSms(''); // 清空 outPutSms
 }
 </script>
 
 <template>
   <div class="input-and-output">
     <el-input
-    v-model="inPutTaskid"
+    v-model="inPutSms"
     style="width: 700px"
     :rows="30"
     type="textarea"
@@ -90,7 +106,7 @@ const clearall = () => {
   />
 
     <el-input
-    v-model="outPutTaskid"
+    v-model="outPutSms"
     style="width: 700px"
     :rows="30"
     type="textarea"
@@ -102,7 +118,8 @@ const clearall = () => {
 
   <div class="input-and-output-option">
     <el-button type="primary" class="del-class" @click="clearall">清空所有</el-button>
-    <el-button type="success" class="copy-class" @click="copyToClipboard(outPutTaskid)">复制结果</el-button>
+    <el-button type="success" class="copy-class" @click="copyToClipboard(outPutSms)">复制结果</el-button>
+    <el-button type="warning" class="refresh-class" @click="refreshOutput">刷新</el-button>
   </div>
 
 </template>
