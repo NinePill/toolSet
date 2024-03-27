@@ -3,6 +3,8 @@ import {ref} from 'vue'
 import {isSetting} from "@/stores/oneStores.js";
 import {useDark, useToggle} from '@vueuse/core'
 import Headers from "@/components/Headers.vue";
+import Cookies from "@/components/Cookies.vue";
+import CurltoRquests from "@/components/CurltoRquests.vue";
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
@@ -59,6 +61,8 @@ const menulList = ref(
       </el-header>
       <el-main>
         <Headers v-if="useSetting.isSelected === 1001"></Headers>
+        <Cookies v-else-if="useSetting.isSelected === 1002"></Cookies>
+        <CurltoRquests v-else-if="useSetting.isSelected === 1003"></CurltoRquests>
       </el-main>
       <el-footer>版权所有</el-footer>
     </el-container>

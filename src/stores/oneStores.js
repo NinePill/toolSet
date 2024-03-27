@@ -9,6 +9,12 @@ export const isSetting = defineStore("isSetting", () => {
     let inPutHeaders = ref('');
     let outPutHeaders = ref('');
 
+    let inPutCookies = ref('');
+    let outPutCookies = ref('');
+
+    let inPutCtoR = ref('');
+    let outPutCtoR = ref('');
+
     const updateinPutHeaders = (inPutValue) => {
       inPutHeaders.value = inPutValue
     }
@@ -17,6 +23,24 @@ export const isSetting = defineStore("isSetting", () => {
       outPutHeaders.value = outPutValue
     }
 
+    const updateinPutCookies = (inPutValue) => {
+      inPutCookies.value = inPutValue
+    }
+
+    const updateoutPutCookies = (outPutValue) => {
+      outPutCookies.value = outPutValue
+    }
+
+    const updateinPutCtoR = (inPutValue) => {
+      inPutCtoR.value = inPutValue
+    }
+
+    const updateoutPutCtoR = (outPutValue) => {
+      outPutCtoR.value = outPutValue
+    }
+
+
+
     return {
         isSelected,
         darkTheme,
@@ -24,7 +48,22 @@ export const isSetting = defineStore("isSetting", () => {
         inPutHeaders,
         outPutHeaders,
         updateinPutHeaders,
-        updateoutPutHeaders
+        updateoutPutHeaders,
+
+        inPutCookies,
+        outPutCookies,
+        updateinPutCookies,
+        updateoutPutCookies,
+
+        inPutCtoR,
+        outPutCtoR,
+        updateinPutCtoR,
+        updateoutPutCtoR,
+
+
+
+
+
 
 
     }
