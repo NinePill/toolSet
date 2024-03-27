@@ -9,6 +9,7 @@ import PwdDecrypt from "@/components/PwdDecrypt.vue";
 import Taskid from "@/components/Taskid.vue";
 import Sms from "@/components/Sms.vue";
 import Translation from "@/components/Translation.vue";
+import Sign from "@/components/Sign.vue";
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
@@ -71,6 +72,7 @@ const menulList = ref(
         <Taskid v-else-if="useSetting.isSelected === 1005"></Taskid>
         <Sms v-else-if="useSetting.isSelected === 1006"></Sms>
         <Translation v-else-if="useSetting.isSelected === 1007"></Translation>
+        <Sign v-else-if="useSetting.isSelected === 1008"></Sign>
       </el-main>
       <el-footer>版权所有</el-footer>
     </el-container>
