@@ -32,5 +32,6 @@ declare module 'vue' {
     PwdDecrypt: typeof import('./src/components/PwdDecrypt.vue')['default']
     Sms: typeof import('./src/components/Sms.vue')['default']
     Taskid: typeof import('./src/components/Taskid.vue')['default']
+    Translation: typeof import('./src/components/Translation.vue')['default']
   }
 }

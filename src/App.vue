@@ -8,6 +8,7 @@ import CurltoRquests from "@/components/CurltoRquests.vue";
 import PwdDecrypt from "@/components/PwdDecrypt.vue";
 import Taskid from "@/components/Taskid.vue";
 import Sms from "@/components/Sms.vue";
+import Translation from "@/components/Translation.vue";
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
@@ -69,6 +70,7 @@ const menulList = ref(
         <PwdDecrypt v-else-if="useSetting.isSelected === 1004"></PwdDecrypt>
         <Taskid v-else-if="useSetting.isSelected === 1005"></Taskid>
         <Sms v-else-if="useSetting.isSelected === 1006"></Sms>
+        <Translation v-else-if="useSetting.isSelected === 1007"></Translation>
       </el-main>
       <el-footer>版权所有</el-footer>
     </el-container>
