@@ -30,5 +30,6 @@ declare module 'vue' {
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
     Headers: typeof import('./src/components/Headers.vue')['default']
     PwdDecrypt: typeof import('./src/components/PwdDecrypt.vue')['default']
+    Taskid: typeof import('./src/components/Taskid.vue')['default']
   }
 }
