@@ -99,7 +99,7 @@ const selectPay = (pay) => {
         <Sign v-else-if="useSetting.isSelected === 1008"></Sign>
         <Ocr v-else-if="useSetting.isSelected === 1009"></Ocr>
       </el-main>
-      <el-footer>版权所有</el-footer>
+      <el-footer></el-footer>
     </el-container>
   </el-container>
 
