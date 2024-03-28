@@ -2,7 +2,7 @@ import {defineStore} from "pinia";
 import {ref} from "vue";
 
 export const isSetting = defineStore("isSetting", () => {
-    let isSelected = ref(false);
+    let isSelected = ref(1001);
     let darkTheme = ref(false);
 
 
