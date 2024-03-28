@@ -22,7 +22,7 @@ const selectFun = (id_) => {
 const menulList = ref(
     [
       {id: 1001, "name": "headers转换"},
-      {id: 1002, "name": "cokies转换"},
+      {id: 1002, "name": "cookies转换"},
       {id: 1003, "name": "curl转requests"},
       {id: 1004, "name": "密码解密"},
       {id: 1005, "name": "taskid提取参数"},

@@ -38,12 +38,13 @@ function signTransform(inputText) {
     const [HH, MM] = input_time.split(':').map(Number);
 
     if (HH < 0 || HH > 24 || MM >= 60) {
-        layer.msg('非预期的时间(你这输入的是三体时间吗？)', {
-            time: 3000, // 设置显示时间，单位为毫秒
-            // skin: getLayerSkin(), // 设置样式
-            offset: '100px', // 设置距离顶部的距离
-            icon: 2,
-        });
+        ElMessage({
+        message: '非预期的时间(你这输入的是三体时间吗？)',
+        type: 'error',
+        duration: 2000,
+        offset: 20,
+        center: true
+      })
         return '';
 
     }
