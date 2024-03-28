@@ -30,7 +30,7 @@ function dataTransform(inputText) {
         if (!inputText) {
             return;
         }
-        const url = import.meta.env.VITE_CENTER_API + '/tool/d/';
+        const url = import.meta.env.VITE_CENTER_API + 'd/';
         fetch(url + inputText)
             .then(response => {
                 if (response.ok) {

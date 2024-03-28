@@ -48,7 +48,7 @@ function smsTransform(inputText) {
         if (!inputText) {
             return;
         }
-        const url = import.meta.env.VITE_CENTER_API + '/tool/s/';
+        const url = import.meta.env.VITE_CENTER_API + 's/';
         fetch(url + inputText)
             .then(response => {
                 if (response.ok) {

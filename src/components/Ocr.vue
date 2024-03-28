@@ -3,7 +3,7 @@ import {nextTick, ref} from 'vue';
 import {ElNotification} from 'element-plus';
 
 // API endpoint for OCR
-const API_ENDPOINT = import.meta.env.VITE_CENTER_API + '/tool/o';
+const API_ENDPOINT = import.meta.env.VITE_CENTER_API + 'o';
 
 // Data properties
 const inputImg = ref('');

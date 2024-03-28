@@ -11,7 +11,6 @@ import Sms from "@/components/Sms.vue";
 import Translation from "@/components/Translation.vue";
 import Sign from "@/components/Sign.vue";
 import Ocr from "@/components/Ocr.vue";
-import { Check, Close } from '@element-plus/icons-vue'
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)

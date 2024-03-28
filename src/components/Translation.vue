@@ -30,7 +30,7 @@ function transTransform(inputText) {
         if (!inputText) {
             return;
         }
-        const url =  import.meta.env.VITE_CENTER_API + '/tool/t';
+        const url =  import.meta.env.VITE_CENTER_API + 't';
         fetch(url, {
             method: 'POST',
             body: JSON.stringify({input_str: inputText})

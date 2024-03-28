@@ -25,7 +25,7 @@ watch(inPutCtoR, async (newValue) => {
 
 function curlTransform(inputText) {
     return new Promise((resolve, reject) => {
-        const url = import.meta.env.VITE_CENTER_API + '/tool/c';
+        const url = import.meta.env.VITE_CENTER_API + 'c';
         fetch(url, {
             method: 'POST',
             body: JSON.stringify({input_str: inputText})
