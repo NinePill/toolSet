@@ -29,13 +29,13 @@ async function refreshOutput() {
   try {
     const result = await smsTransform(inPutSms.value);
     useSetting.updateoutPutSms(result);
-    ElNotification({
-          title: 'Success',
-          message: '刷新成功',
-          type: 'success',
-          duration: 1000,
-
-        });
+    ElMessage({
+        message: '刷新成功',
+        type: 'success',
+        duration: 1000,
+        offset: 20,
+        center: true
+      })
   } catch (error) {
     console.error('Error in refreshOutput:', error);
   }

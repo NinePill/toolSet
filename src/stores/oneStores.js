@@ -30,6 +30,9 @@ export const isSetting = defineStore("isSetting", () => {
     let inPutTime = ref('');
     let outPutTime = ref('');
 
+    let inPutOcr = ref('');
+    let outPutOcr = ref('');
+
     const updateinPutHeaders = (inPutValue) => {
       inPutHeaders.value = inPutValue
     }
@@ -94,6 +97,14 @@ export const isSetting = defineStore("isSetting", () => {
       outPutTime.value = outPutValue
     }
 
+     const updateinPutOcr= (inPutValue) => {
+      inPutOcr.value = inPutValue
+    }
+
+    const updateoutPutOcr= (outPutValue) => {
+      outPutOcr.value = outPutValue
+    }
+
 
 
     return {
@@ -139,6 +150,14 @@ export const isSetting = defineStore("isSetting", () => {
         outPutTime,
         updateinPutTime,
         updateoutPutTime,
+
+        inPutOcr,
+        outPutOcr,
+        updateinPutOcr,
+        updateoutPutOcr,
+
+
+
 
 
 
